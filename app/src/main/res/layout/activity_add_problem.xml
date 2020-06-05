@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4"
+    android:orientation="horizontal"
+    tools:context=".AddProblem">
+
+    <com.example.myboard.ZoomableImageView
+
+        android:id="@+id/BoardImage"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="58dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:focusable="auto"
+        android:focusableInTouchMode="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.myboard.CustomLayout
+        android:id="@+id/vg"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="58dp"
+        android:clickable="false"
+        android:clipChildren="false"
+        android:focusable="auto"
+        android:longClickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.example.myboard.CustomLayout>
+
+    <EditText
+        android:id="@+id/ProblemGrade"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="4dp"
+        android:background="#737373"
+        android:ems="10"
+        android:hint="Grade"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ProblemName" />
+
+    <Switch
+        android:id="@+id/IsCrimpy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:checked="false"
+        android:text="IsCrimpy"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/surfaceView5"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toEndOf="@+id/IsPowerful"
+        app:layout_constraintTop_toBottomOf="@+id/IsTechnical" />
+
+    <Switch
+        android:id="@+id/IsTechnical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="34dp"
+        android:text="IsTechnical"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/surfaceView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/IsSustained"
+        app:layout_constraintTop_toBottomOf="@+id/ProblemName" />
+
+    <Switch
+        android:id="@+id/IsSustained"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="IsSustained"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/surfaceView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ProblemGrade" />
+
+    <SurfaceView
+        android:id="@+id/surfaceView3"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:background="#737373"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Add Problem"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/surfaceView3"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView3"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView3" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addproblem2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:clickable="true"
+        android:onClick="addHold"
+        app:backgroundTint="#9A9A9A"
+        app:borderWidth="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="35dp"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <EditText
+        android:id="@+id/ProblemName"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="2dp"
+        android:background="#737373"
+        android:ems="10"
+        android:hint="Problem name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/surfaceView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vg" />
+
+    <Switch
+        android:id="@+id/IsPowerful"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="IsPowerful"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/surfaceView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IsSustained" />
+
+    <ImageButton
+        android:id="@+id/IsFav"
+        android:layout_width="54dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:onClick="updateFavourateButton"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toStartOf="@+id/addproblem2"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/button_star_off" />
+
+    <Button
+        android:id="@+id/AddProblem"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="2dp"
+        android:background="#737373"
+        android:onClick="CreateProblem"
+        android:text="Add Problem"
+        app:layout_constraintEnd_toStartOf="@+id/surfaceView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IsPowerful" />
+
+    <SurfaceView
+        android:id="@+id/surfaceView5"
+        android:layout_width="157dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="2dp"
+        android:background="#737373"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vg" />
+
+    <Switch
+        android:id="@+id/isStartHold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:onClick="onTouchIsSH"
+        android:text="IsStartHold"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView5"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView5" />
+
+    <Switch
+        android:id="@+id/isFinishHold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="56dp"
+        android:onClick="onTouchIsFH"
+        android:text="IsFinishHold"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView5"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView5" />
+
+    <Button
+        android:id="@+id/IncreaseScale"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="85dp"
+        android:background="@drawable/upscale"
+        android:onClick="onTouchScaleUp"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView5"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView5" />
+
+    <Button
+        android:id="@+id/DecreaseScale"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="85dp"
+        android:background="@drawable/downscale"
+        android:onClick="onTouchScaleDown"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView5"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView5" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:text="Hold Settings"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView5"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView5" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="85dp"
+        android:background="@android:drawable/ic_delete"
+        android:onClick="deleteHold"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView5"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

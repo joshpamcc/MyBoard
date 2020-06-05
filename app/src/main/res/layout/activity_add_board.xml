@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4"
+    tools:context=".AddBoard">
+
+    <SurfaceView
+        android:id="@+id/surfaceView2"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#737373"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/BoardImage"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_marginTop="68sp"
+        android:background="#AB000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/AddBoardName"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="200dp"
+        android:layout_height="44sp"
+        android:layout_marginTop="8sp"
+        android:background="#737373"
+        android:ems="10"
+        android:hint="board name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BoardImage" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:text="@string/add_board"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView2" />
+
+    <Button
+        android:id="@+id/AddBoard"
+        android:layout_width="260dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="70sp"
+        android:background="#737373"
+        android:onClick="CreateBoard"
+        android:text="@string/add_board"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BoardImage" />
+
+    <ImageButton
+        android:id="@+id/AddImage"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="7dp"
+        android:background="#00FFFFFF"
+        android:onClick="AddImage"
+        app:layout_constraintBottom_toBottomOf="@+id/surfaceView2"
+        app:layout_constraintEnd_toEndOf="@+id/surfaceView2"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <ImageButton
+        android:id="@+id/IsFavourateBoard"
+        android:layout_width="51sp"
+        android:layout_height="48sp"
+        android:layout_marginStart="36sp"
+        android:layout_marginTop="8sp"
+        android:background="#00FFFFFF"
+        android:onClick="updateFavourateButton"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toEndOf="@+id/AddBoardName"
+        app:layout_constraintTop_toBottomOf="@+id/BoardImage"
+        app:srcCompat="@drawable/button_star_off" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

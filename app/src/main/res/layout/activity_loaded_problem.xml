@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4"
+    tools:context=".LoadedProblem">
+
+    <ImageButton
+        android:id="@+id/isFav"
+        android:layout_width="54dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:background="#00FFFFFF"
+        android:onClick="updateFavourateButton"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/problemCompleted"
+        app:layout_constraintTop_toBottomOf="@+id/bi"
+        app:srcCompat="@drawable/button_star_off" />
+
+    <com.example.myboard.ZoomableImageView
+
+        android:id="@+id/bi"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="66dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:focusable="auto"
+        android:focusableInTouchMode="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.myboard.CustomLayout
+        android:id="@+id/vg"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="66dp"
+        android:clickable="false"
+        android:clipChildren="false"
+        android:focusable="auto"
+        android:longClickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.example.myboard.CustomLayout>
+
+    <SurfaceView
+        android:id="@+id/surfaceView6"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        android:background="#737373"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addproblem4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="12dp"
+        android:clickable="true"
+        android:onClick="editRoute"
+        android:tint="#E621BC28"
+        app:backgroundTint="#9A9A9A"
+        app:borderWidth="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="35dp"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <TextView
+        android:id="@+id/problemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="problemName"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/addproblem4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/grade"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/grade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="grade"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/problemCompleted"
+        android:layout_width="260dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="4dp"
+        android:background="#FFFF0000"
+        android:onClick="updateIsCompleted"
+        android:text="completed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bi" />
+
+    <Button
+        android:id="@+id/updateChanges"
+        android:layout_width="384dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
+        android:background="#737373"
+        android:onClick="updateRoute"
+        android:text="Update"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/problemCompleted" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

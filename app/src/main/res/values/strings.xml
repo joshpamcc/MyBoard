@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Board</string>
+    <string name="goto_board">goto boards</string>
+    <string name="add_board">Add Board</string>
+</resources>
