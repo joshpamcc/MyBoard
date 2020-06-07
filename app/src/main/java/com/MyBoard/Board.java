@@ -1,4 +1,4 @@
-package com.example.myboard;
+package com.MyBoard;
 import android.content.Context;
 
 import java.io.*;
@@ -11,6 +11,7 @@ public class Board
     public long fileStartPos = 0;
     public boolean isFavourate = false;
     public boolean toBeDeleted = false;
+    public boolean toImport = false;
 
 
     public Board(int NameLength, byte Data, String Name)

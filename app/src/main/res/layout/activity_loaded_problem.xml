@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00BCD4"
-    tools:context=".LoadedProblem">
+    tools:context="com.MyBoard.LoadedProblem">
 
     <ImageButton
         android:id="@+id/isFav"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bi"
         app:srcCompat="@drawable/button_star_off" />
 
-    <com.example.myboard.ZoomableImageView
+    <com.MyBoard.ZoomableImageView
 
         android:id="@+id/bi"
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.myboard.CustomLayout
+    <com.MyBoard.CustomLayout
         android:id="@+id/vg"
         android:layout_width="match_parent"
         android:layout_height="350dp"
@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </com.example.myboard.CustomLayout>
+    </com.MyBoard.CustomLayout>
 
     <SurfaceView
         android:id="@+id/surfaceView6"

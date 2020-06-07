@@ -1,4 +1,4 @@
-package com.example.myboard;
+package com.MyBoard;
 import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,6 +62,15 @@ public class ProblemHandle extends AppCompatActivity
         problems.add(problem);
         problem.holdCoOrds.clear();
         problem.holdData.clear();
+        updateNumberOfProblems();
+    }
+
+    public void CreateProblem(Problem p)
+    {
+        WriteProblem(p, problems.size(), false);
+        problems.add(p);
+        p.holdCoOrds.clear();
+        p.holdData.clear();
         updateNumberOfProblems();
     }
 
@@ -484,7 +493,10 @@ public class ProblemHandle extends AppCompatActivity
             {
                 file.seek(problem.startPos);
             }
-
+            if (problem.startPos == 0)
+            {
+                problem.startPos = file.getFilePointer();
+            }
             file.writeInt(problem.NameLength);
             file.writeInt(problem.Grade);
             file.writeByte(problem.problemDescriptors);
@@ -584,6 +596,7 @@ public class ProblemHandle extends AppCompatActivity
     {
         return sortedProblems.get(index);
     }
+
     public int getIndexFromName(String name)
     {
         int index = 0;

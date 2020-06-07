@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00BCD4"
-    tools:context=".AddBoard">
+    tools:context="com.MyBoard.AddBoard">
 
     <SurfaceView
         android:id="@+id/surfaceView2"
@@ -49,6 +49,7 @@
         android:text="@string/add_board"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/surfaceView2" />
 
@@ -73,7 +74,7 @@
         android:onClick="AddImage"
         app:layout_constraintBottom_toBottomOf="@+id/surfaceView2"
         app:layout_constraintEnd_toEndOf="@+id/surfaceView2"
-        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
@@ -93,5 +94,16 @@
         app:layout_constraintStart_toEndOf="@+id/AddBoardName"
         app:layout_constraintTop_toBottomOf="@+id/BoardImage"
         app:srcCompat="@drawable/button_star_off" />
+
+    <Button
+        android:id="@+id/share2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="7dp"
+        android:background="@android:drawable/ic_menu_share"
+        android:onClick="shareImage"
+        android:text=" "
+        app:layout_constraintBottom_toBottomOf="@+id/surfaceView2"
+        app:layout_constraintEnd_toStartOf="@+id/AddImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.myboard;
+package com.MyBoard;
 
 import android.content.Context;
 import android.graphics.Bitmap;

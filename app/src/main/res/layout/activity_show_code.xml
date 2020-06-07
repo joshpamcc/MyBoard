@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00BCD4"
-    tools:context=".ShowCode">
+    tools:context="com.MyBoard.ShowCode">
 
     <SurfaceView
         android:id="@+id/surfaceView12"
@@ -36,14 +36,12 @@
         android:layout_marginTop="16dp"
         android:text="Problem QR codes"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/confirmExport"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/QRcode"
-        android:layout_width="399dp"
+        android:layout_width="400dp"
         android:layout_height="362dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,10 +78,22 @@
         android:id="@+id/done"
         android:layout_width="91dp"
         android:layout_height="50dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="#9A9A9A"
         android:onClick="done"
         android:text="Done"
         app:layout_constraintEnd_toEndOf="@+id/surfaceView10"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/share"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/ic_menu_share"
+        android:onClick="share"
+        android:text=" "
+        app:layout_constraintEnd_toStartOf="@+id/done"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

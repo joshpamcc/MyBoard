@@ -1,6 +1,6 @@
-package com.example.myboard;
+package com.MyBoard;
 import android.content.Context;
-import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import java.io.*;
 import java.util.*;
@@ -323,5 +323,19 @@ public class BoardHandle extends AppCompatActivity
             }
         }
         return index;
+    }
+
+    public Board getSortedBoardAt(int index)
+    {
+        return sortedBoards.get(index);
+    }
+
+    public void resetBoardFlags()
+    {
+        for (Board b : sortedBoards)
+        {
+            b.toImport = false;
+            b.toBeDeleted = false;
+        }
     }
 }

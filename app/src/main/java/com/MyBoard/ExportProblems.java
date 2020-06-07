@@ -1,7 +1,6 @@
-package com.example.myboard;
+package com.MyBoard;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
@@ -10,8 +9,14 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+
 import net.glxn.qrgen.android.QRCode;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 public class ExportProblems extends AppCompatActivity
@@ -19,51 +24,57 @@ public class ExportProblems extends AppCompatActivity
 
     private static String output = "";
     public static ArrayList<Bitmap> codeList = new ArrayList<>();
+    public static ArrayList<File> codeFiles = new ArrayList<>();
+    private boolean selectAll = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        codeFiles.clear();
+        codeList.clear();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_export_problems);
-
-        final ProblemHandle problemHandle = Problems.problemHandle;
-
-        ListView lv = (ListView) findViewById(R.id.List);
-
-        final ArrayList<Problem> tempProbs = Problems.problemHandle.getSortedProblems();
-
-        if (problemHandle.getNumberOfProblems() > 0)
-        {
-            final String[] names = new String[problemHandle.getNumberOfProblems()];
-
-            for (int index = 0; index < problemHandle.getNumberOfProblems(); index++)
-            {
-                names[index] = tempProbs.get(index).Name;
-            }
-            ProblemListLayout layout = new ProblemListLayout(this, names);
-            lv.setAdapter(layout);
-
-            lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
-            {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-                {
-                    Problem problem = tempProbs.get(position);
-
-                    if  (!problem.toBeExported)
-                    {
-                        problem.toBeExported = true;
-                        view.findViewById(R.id.layout).setBackgroundColor(0xff808588);
-                    }
-                    else
-                    {
-                        problem.toBeExported = false;
-                        view.findViewById(R.id.layout).setBackgroundColor(0xffEC407A);
-                    }
-                }
-            });
-        }
+        updateListDisplay();
     }
+
+        private void updateListDisplay()
+        {
+            ListView lv = (ListView) findViewById(R.id.List);
+            final ProblemHandle problemHandle = Problems.problemHandle;
+            final ArrayList<Problem> tempProbs = Problems.problemHandle.getSortedProblems();
+            problemHandle.sort(0);
+            if (problemHandle.getNumberOfProblems() > 0)
+            {
+                final String[] names = new String[problemHandle.getNumberOfProblems()];
+
+                for (int index = 0; index < problemHandle.getNumberOfProblems(); index++)
+                {
+                    names[index] = tempProbs.get(index).Name;
+                }
+                ProblemListLayout layout = new ProblemListLayout(this, names);
+                lv.setAdapter(layout);
+
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+                    {
+                        Problem problem = tempProbs.get(position);
+
+                        if  (!problem.toBeExported)
+                        {
+                            problem.toBeExported = true;
+                            view.findViewById(R.id.layout).setBackgroundColor(0xff808588);
+                        }
+                        else
+                        {
+                            problem.toBeExported = false;
+                            view.findViewById(R.id.layout).setBackgroundColor(0xffEC407A);
+                        }
+                    }
+                });
+            }
+        }
 
     public void Confirm(View view)
     {
@@ -151,39 +162,53 @@ public class ExportProblems extends AppCompatActivity
             FormatHolds(p);
         }
         String filename = "";
-        filename += Build.MODEL + Boards.loadedBoard +  n;
-        File file = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), filename); //check directory is right
-        file = QRCode.from(output).withCharset("UTF-8").file();
+        filename += "QRCOde:"+Build.MODEL + Boards.loadedBoard + n+".png";
+        File parent = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MyBoard");
+        if (!parent.exists())
+        {
+            parent.mkdirs();
+        }
+
+        try
+        {
+            File f =  new File(parent, filename);
+            ByteArrayOutputStream bs = QRCode.from(output).withCharset("UTF-8").stream();
+            FileOutputStream fo = new FileOutputStream(f);
+            fo.write(bs.toByteArray());
+            codeFiles.add(f);
+            fo.close();
+        }
+        catch(IOException e)
+        {
+        }
         Bitmap im = QRCode.from(output).withCharset("UTF-8").bitmap();
         codeList.add(im);
     }
 
     private void AddQRHeader(int numOfProblems)
     {
+        output = "";
         byte checksum = Byte.MAX_VALUE;
-        output += ((char) checksum) + ((char) ((byte) numOfProblems));
+        output += ((char) checksum);
+        output += ((char) ((byte) numOfProblems));
     }
 
     private void FormatData(Problem p)
     {
         byte data = 0;
-        data += (p.IsFavourate) ? 1 << 7: 0 << 7;
+        data += (p.IsFavourate) ? 0 << 7: 0 << 7;
         data += (p.IsFont) ? 1 << 6: 0 << 6;
         data += (p.IsTechnical) ? 1 << 5: 0 << 5;
         data += (p.IsPowerful) ? 1 << 4: 0 << 4;
         data += (p.IsSustained) ? 1 << 3: 0 << 3;
         data += (p.IsCrimpy) ? 1 << 2: 0 << 2;
-        data += (p.IsComplete) ? 1 << 1: 0 << 1;
+        data += (p.IsComplete) ? 0 << 1: 0 << 1;
         output += ((char) data);
     }
 
     private void FormatInt(int data)
     {
-        byte[] formatted = new byte[4];
-        formatted[0] = (byte) (data & 0xff000000);
-        formatted[1] = (byte) (data & 0x00ff0000);
-        formatted[2] = (byte) (data & 0x0000ff00);
-        formatted[3] = (byte) (data & 0x000000ff);
+        byte[] formatted = ByteBuffer.allocate(4).putInt(data).array();
         for (int i = 0; i < 4; i++)
         {
             output += ((char) formatted[i]);
@@ -210,8 +235,26 @@ public class ExportProblems extends AppCompatActivity
         {
             FormatInt(p.holdCoOrds.get(i)[0]);
             FormatInt(p.holdCoOrds.get(i)[1]);
-            output += ((char) p.holdData.get(i)[0]) + ((char) p.holdData.get(i)[1]);
+            output += ((char) p.holdData.get(i)[0]);
+            output += ((char) p.holdData.get(i)[1]);
         }
+    }
+
+    public void SelectAll (View view)
+    {
+        if (selectAll)
+        {
+            selectAll = false;
+        }
+        else
+        {
+            selectAll = true;
+        }
+        for (Problem p: Problems.problemHandle.getProblems())
+        {
+            p.toBeExported = selectAll;
+        }
+        updateListDisplay();
     }
 
     @Override

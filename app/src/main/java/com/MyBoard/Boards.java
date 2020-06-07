@@ -1,4 +1,4 @@
-package com.example.myboard;
+package com.MyBoard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+
 
 public class Boards extends AppCompatActivity
 {
@@ -87,6 +88,12 @@ public class Boards extends AppCompatActivity
     public boolean onNavigateUp() {
         loadedBoard = "";
         return super.onNavigateUp();
+    }
+
+    @Override
+    public void onBackPressed() {
+        loadedBoard = "";
+        super.onBackPressed();
     }
 
     public void AddBoard(View view)

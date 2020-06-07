@@ -5,34 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00BCD4"
-    tools:context="com.MyBoard.DeleteProblem">
+    tools:context="com.MyBoard.ImportProblems">
 
     <ListView
         android:id="@+id/List"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="85dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
         android:dividerHeight="3dp"
-        android:footerDividersEnabled="true"
-        android:headerDividersEnabled="true"
-        android:isScrollContainer="true"
-        android:layoutDirection="locale"
-        android:layoutMode="opticalBounds"
-        android:orientation="vertical"
-        android:overScrollMode="always"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbarSize="6dp"
         android:scrollbarStyle="insideOverlay"
-        android:scrollbars="vertical"
         android:smoothScrollbar="true"
-        android:verticalScrollbarPosition="right"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ListView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <SurfaceView
-        android:id="@+id/surfaceView4"
+        android:id="@+id/surfaceView13"
         android:layout_width="0dp"
         android:layout_height="85dp"
         android:background="#737373"
@@ -42,29 +30,36 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/sortproblems2"
-        android:layout_width="148sp"
-        android:layout_height="48sp"
+        android:id="@+id/confirmImport"
+        android:layout_width="100dp"
+        android:layout_height="54dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="4dp"
         android:background="#9A9A9A"
-        android:onClick="Confirm"
+        android:onClick="confirm"
         android:text="Confirm"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/boradname2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10sp"
-        android:layout_marginTop="20sp"
-        android:text="Delete Problems"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/sortproblems2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Add to Board"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView13"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/problemsAdding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="52dp"
+        android:text="Problems Adding: 0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView13"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

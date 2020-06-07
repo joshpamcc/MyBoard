@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.myboard"
-    android:versionCode="1"
+    package="com.MyBoard"
+    android:versionCode="3"
     android:versionName="MyBoard.V.1">
 
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,65 +15,71 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ShowCode"
-            android:parentActivityName=".Problems">
+        <activity android:name="com.MyBoard.ImportProblems"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Problems" />
+                android:value=".MainActivity" />
+
+        </activity>
+        <activity android:name="com.MyBoard.ShowCode"
+            android:parentActivityName="com.MyBoard.Boards">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.MyBoard.Boards" />
 
         </activity>
         <activity
-            android:name=".ExportProblems"
-            android:parentActivityName=".Problems">
+            android:name="com.MyBoard.ExportProblems"
+            android:parentActivityName="com.MyBoard.Problems">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Problems" />
+                android:value="com.MyBoard.Problems" />
         </activity>
-        <activity android:name=".Import" />
         <activity
-            android:name=".DeleteBoard"
-            android:parentActivityName=".Boards">
+            android:name="com.MyBoard.DeleteBoard"
+            android:parentActivityName="com.MyBoard.Boards">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Boards" />
+                android:value="com.MyBoard.Boards" />
         </activity>
         <activity
-            android:name=".DeleteProblem"
-            android:parentActivityName=".Problems">
+            android:name="com.MyBoard.DeleteProblem"
+            android:parentActivityName="com.MyBoard.Problems">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Problems" />
+                android:value="com.MyBoard.Problems" />
         </activity>
         <activity
-            android:name=".LoadedProblem"
-            android:parentActivityName=".Problems">
+            android:name="com.MyBoard.LoadedProblem"
+            android:parentActivityName="com.MyBoard.Problems">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Problems" />
+                android:value="com.MyBoard.Problems" />
         </activity>
         <activity
-            android:name=".Problems"
-            android:parentActivityName=".Boards">
+            android:name="com.MyBoard.Problems"
+            android:parentActivityName="com.MyBoard.Boards">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Boards" />
+                android:value="com.MyBoard.Boards" />
         </activity>
         <activity
-            android:name=".AddProblem"
-            android:parentActivityName=".Problems">
+            android:name="com.MyBoard.AddProblem"
+            android:parentActivityName="com.MyBoard.Problems">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Problems" />
+                android:value="com.MyBoard.Problems" />
         </activity>
         <activity
-            android:name=".AddBoard"
-            android:parentActivityName=".Boards">
+            android:name="com.MyBoard.AddBoard"
+            android:parentActivityName="com.MyBoard.Boards">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Boards" />
+                android:value="com.MyBoard.Boards" />
         </activity>
         <activity
-            android:name=".Boards"
+            android:name="com.MyBoard.Boards"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

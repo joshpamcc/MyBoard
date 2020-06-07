@@ -1,4 +1,4 @@
-package com.example.myboard;
+package com.MyBoard;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
@@ -33,7 +35,6 @@ public class Problems extends AppCompatActivity
         loadedBoard = Boards.boardHandle.getBoardWithName(filename);
 
         TextView tv = (TextView) findViewById(R.id.boradname);
-
         tv.setText(filename);
 
         problemHandle = new ProblemHandle(filename, this.getApplicationContext());
@@ -143,5 +144,11 @@ public class Problems extends AppCompatActivity
     public void onBackPressed() {
         Boards.loadedBoard = "";
         super.onBackPressed();
+    }
+
+    @Override
+    public boolean onNavigateUp() {
+        Boards.loadedBoard = "";
+        return super.onNavigateUp();
     }
 }

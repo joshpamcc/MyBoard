@@ -1,11 +1,10 @@
-package com.example.myboard;
+package com.MyBoard;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 

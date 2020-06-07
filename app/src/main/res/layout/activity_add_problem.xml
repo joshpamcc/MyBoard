@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:background="#00BCD4"
     android:orientation="horizontal"
-    tools:context=".AddProblem">
+    tools:context="com.MyBoard.AddProblem">
 
-    <com.example.myboard.ZoomableImageView
+    <com.MyBoard.ZoomableImageView
 
         android:id="@+id/BoardImage"
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.myboard.CustomLayout
+    <com.MyBoard.CustomLayout
         android:id="@+id/vg"
         android:layout_width="match_parent"
         android:layout_height="350dp"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </com.example.myboard.CustomLayout>
+    </com.MyBoard.CustomLayout>
 
     <EditText
         android:id="@+id/ProblemGrade"
@@ -166,8 +166,8 @@
 
     <Button
         android:id="@+id/AddProblem"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
+        android:layout_width="246dp"
+        android:layout_height="29dp"
         android:layout_marginTop="2dp"
         android:background="#737373"
         android:onClick="CreateProblem"
@@ -179,8 +179,8 @@
 
     <SurfaceView
         android:id="@+id/surfaceView5"
-        android:layout_width="157dp"
-        android:layout_height="130dp"
+        android:layout_width="154dp"
+        android:layout_height="149dp"
         android:layout_marginTop="2dp"
         android:background="#737373"
         app:layout_constraintEnd_toEndOf="parent"
@@ -193,7 +193,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="30dp"
         android:onClick="onTouchIsSH"
         android:text="IsStartHold"
         app:layout_constraintStart_toStartOf="@+id/surfaceView5"
@@ -204,7 +204,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="60dp"
         android:onClick="onTouchIsFH"
         android:text="IsFinishHold"
         app:layout_constraintStart_toStartOf="@+id/surfaceView5"
@@ -215,7 +215,7 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="95dp"
         android:background="@drawable/upscale"
         android:onClick="onTouchScaleUp"
         app:layout_constraintStart_toStartOf="@+id/surfaceView5"
@@ -226,7 +226,7 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="95dp"
         android:background="@drawable/downscale"
         android:onClick="onTouchScaleDown"
         app:layout_constraintStart_toStartOf="@+id/surfaceView5"
@@ -247,8 +247,8 @@
         android:id="@+id/delete"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="95dp"
         android:background="@android:drawable/ic_delete"
         android:onClick="deleteHold"
         app:layout_constraintStart_toStartOf="@+id/surfaceView5"

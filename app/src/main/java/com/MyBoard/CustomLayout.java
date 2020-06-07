@@ -1,4 +1,4 @@
-package com.example.myboard;
+package com.MyBoard;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RemoteViews;
+
 
 /**
  * Example of writing a custom layout manager.  This is a fairly full-featured

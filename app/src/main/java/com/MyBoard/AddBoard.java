@@ -1,18 +1,22 @@
-package com.example.myboard;
+package com.MyBoard;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -24,6 +28,7 @@ public class AddBoard extends AppCompatActivity
     private static boolean isFav = false;
     private ProblemHandle ph;
     private ArrayList<Problem> problemList;
+    private Bitmap bm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -115,6 +120,7 @@ public class AddBoard extends AppCompatActivity
                 final Uri imageUri = data.getData();
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                bm = selectedImage;
                 ImageView Image =  (ImageView) this.findViewById(R.id.BoardImage);
                 Image.setImageBitmap(selectedImage);
                 ImageURI = imageUri.toString();
@@ -138,6 +144,8 @@ public class AddBoard extends AppCompatActivity
             ph.ReadHolds(ph.getProblemAt(i));
         }
         problemList = new ArrayList<>(ph.getProblems());
+        TextView tv = (TextView) findViewById(R.id.textView2);
+        tv.setText("Edit Board");
         EditText editText = (EditText) this.findViewById(R.id.AddBoardName);
         editText.setText(Boards.boardHandle.EditingBoard.name);
         ImageButton FavButton = (ImageButton) this.findViewById(R.id.IsFavourateBoard);
@@ -181,6 +189,36 @@ public class AddBoard extends AppCompatActivity
             FavButton.setImageResource(R.drawable.button_star_off);
             isFav = false;
         }
+    }
+
+    public void shareImage(View view)
+    {
+        if (bm != null)
+        {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            intent.setType("image/*");
+            intent.putExtra(Intent.EXTRA_STREAM, getImageUri(this.getApplicationContext(), bm));
+            try {
+                startActivity(Intent.createChooser(intent, "qr codes.."));
+            } catch (android.content.ActivityNotFoundException ex) {
+
+                ex.printStackTrace();
+            }
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Pick an image for the board!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
     }
 
     @Override

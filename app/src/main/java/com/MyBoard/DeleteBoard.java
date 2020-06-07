@@ -1,4 +1,4 @@
-package com.example.myboard;
+package com.MyBoard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 
 import java.util.ArrayList;
 
@@ -75,6 +76,13 @@ public class DeleteBoard extends AppCompatActivity {
             Boards.boardHandle.deleteBoard(toDelete.get(i).name);
         }
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Boards.boardHandle.resetBoardFlags();
+        super.onBackPressed();
     }
 
 }

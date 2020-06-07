@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00BCD4"
-    tools:context=".ExportProblems">
+    tools:context="com.MyBoard.ExportProblems">
 
     <ListView
         android:id="@+id/List"
@@ -43,13 +43,14 @@
 
     <Button
         android:id="@+id/confirmExport"
-        android:layout_width="148sp"
-        android:layout_height="48sp"
-        android:layout_marginTop="16dp"
+        android:layout_width="125dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="6dp"
         android:background="#9A9A9A"
+        android:onClick="Confirm"
         android:text="Confirm"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,11 +59,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10sp"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="24dp"
         android:text="Export Problems"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/confirmExport"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/selectALL"
+        android:layout_width="125dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="44dp"
+        android:background="#9A9A9A"
+        android:onClick="SelectAll"
+        android:text="Select ALL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
